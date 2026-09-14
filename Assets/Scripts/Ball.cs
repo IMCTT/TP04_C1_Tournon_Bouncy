@@ -42,7 +42,7 @@ public class Ball : MonoBehaviour
 
 
             rb.linearVelocity = Vector2.zero;
-            rightScore++;
+         
             
             AddPoint(1);
 
@@ -56,8 +56,7 @@ public class Ball : MonoBehaviour
 
             rb.linearVelocity = Vector2.zero;
             AddPoint(2);
-            leftScore++;
-            leftscorePoints.text = leftScore.ToString();
+    
 
         }
 
@@ -73,11 +72,16 @@ public class Ball : MonoBehaviour
     }
     public void AddPoint(int player)
     {
-        if (player == 1) player1Score++;
+        if (player == 1) 
         {
+            player1Score++;
             rightscorePoints.text = player1Score.ToString();
         }
-        else player2Score++;
+        else
+        {
+            player2Score++;
+            leftscorePoints.text = player2Score.ToString();
+        }
 
         if (player1Score >= data.pointsToWin || player2Score >= data.pointsToWin)
         {
