@@ -850,6 +850,15 @@ MonoBehaviour:
   Speed: 10000
   keyup: 273
   keydown: 274
+  keyLeft: 276
+  keyRight: 275
+  ballMask:
+    serializedVersion: 2
+    m_Bits: 256
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 512
+  player: 2
 --- !u!212 &175354039
 SpriteRenderer:
   serializedVersion: 2
@@ -1024,7 +1033,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!1 &194171796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,7 +2634,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 859948653}
   initialForce: {x: 5, y: 1}
-  data: {fileID: 11400000, guid: d90f8186cc8ea3f4789ffed6069c4abf, type: 2}
 --- !u!4 &683368747
 Transform:
   m_ObjectHideFlags: 0
@@ -3129,6 +3137,7 @@ MonoBehaviour:
     m_Bits: 2048
   leftscorePoints: {fileID: 912601156}
   rightscorePoints: {fileID: 1984759968}
+  data: {fileID: 0}
   rb: {fileID: 859948652}
 --- !u!212 &859948654
 SpriteRenderer:
@@ -4245,11 +4254,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 625498086}
   - {fileID: 1306982791}
   - {fileID: 1102978309}
   - {fileID: 1792987250}
   - {fileID: 1004888125}
-  - {fileID: 625498086}
   m_Father: {fileID: 230641460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7042,6 +7051,15 @@ MonoBehaviour:
   Speed: 10000
   keyup: 119
   keydown: 115
+  keyLeft: 97
+  keyRight: 100
+  ballMask:
+    serializedVersion: 2
+    m_Bits: 256
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 512
+  player: 1
 --- !u!212 &1886793975
 SpriteRenderer:
   serializedVersion: 2
@@ -7170,7 +7188,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!61 &1886793980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7187,7 +7205,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
