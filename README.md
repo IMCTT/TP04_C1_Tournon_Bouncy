@@ -2,7 +2,7 @@
 
 Juego de Pong para 2 jugadores desarrollado en Unity, con mecánicas personalizadas, físicas reales y configuración vía Scriptable Objects.
 
-🎮 **Jugalo en Itch.io:** [link al juego](#) <!-- TODO: reemplazar por el link real -->
+🎮 **Jugalo en Itch.io:** [https://sueni.itch.io/bouncy]
 
 ---
 
@@ -21,10 +21,19 @@ Pong clásico de 2 jugadores con:
 
 ## 🕹️ Controles
 
-| Jugador | Izquierda | Derecha |
-|---|---|---|
-| Jugador 1 | A | D |
-| Jugador 2 | ← | → |
+JUGADOR IZQUIERDA:                                       
+
+Movimiento: WASD                                                 
+
+Cambiar color: R                                                            
+
+JUGADOR DERECHA:
+
+Movimiento: Flechas de teclado
+
+Cambiar color: R 
+
+PAUSA/PAUSE: ESC
 
 Cada jugador está limitado a su propio lado de la cancha (medio y arco correspondiente).
 
@@ -32,7 +41,7 @@ Cada jugador está limitado a su propio lado de la cancha (medio y arco correspo
 
 ## ⚙️ Scriptable Objects — GameSettings
 
-El juego usa un `ScriptableObject` (`GameSettings.asset`) como fuente única de configuración, referenciado por los distintos scripts (`GameManager`, `Ball`, `GoalTimer`, etc.) en vez de tener valores hardcodeados o repetidos.
+El juego usa un `ScriptableObject` como fuente única de configuración, referenciado por los distintos scripts (`GameManager`, `Ball`, `GoalTimer`, etc.) en vez de tener valores hardcodeados o repetidos.
 
 Parámetros configurables desde el asset (sin tocar código):
 
@@ -42,28 +51,8 @@ Parámetros configurables desde el asset (sin tocar código):
 - **Speed Increase Per Hit**: incremento de velocidad en cada impacto.
 - **Max Ball Speed**: tope máximo de velocidad de la pelota.
 
-Para editarlo: `Assets > GameSettings.asset` → Inspector.
-
 ---
 
-## 🧱 Arquitectura del proyecto
-
-```
-Assets/
-├── Scripts/
-│   ├── GameSettings.cs        # Definición del Scriptable Object
-│   ├── GameManager.cs         # Puntaje, condición de victoria
-│   ├── Ball.cs                 # Movimiento y rebote de la pelota
-│   ├── GoalTimer.cs            # Límite de tiempo por posesión
-│   ├── PlayerMovement.cs       # Movimiento del paddle (WASD / flechas)
-│   ├── PaddleColor.cs          # Cambio de color al chocar límites / pelota
-│   └── UI/                     # Menús y HUD
-├── GameSettings.asset          # Instancia de configuración del juego
-└── Scenes/
-    └── MainScene.unity
-```
-
----
 
 ## 🔧 Mecánicas técnicas
 
@@ -76,23 +65,14 @@ Assets/
 
 ---
 
-## 🚀 Cómo correrlo localmente
-
-1. Cloná el repositorio:
-   ```bash
-   git clone https://github.com/<usuario>/<nombre-repo>.git
-   ```
-2. Abrí el proyecto con **Unity <versión utilizada>** <!-- TODO: completar versión de Unity -->.
-3. Abrí la escena principal: `Assets/Scenes/MainScene.unity`.
-4. Play.
 
 ---
 
 ## 👤 Créditos
 
-- **Desarrollo**: <!-- TODO: tu nombre -->
-- **Assets utilizados**: <!-- TODO: listar fuentes de sprites/audio, ej. Kenney.nl, freesound.org, etc. -->
-- **Cátedra**: FedeOliveClases
+- **Desarrollo**: Tomas Tournon
+- **Assets utilizados**: https://kenney.nl/assets/ui-pack  https://kenney.nl/assets/planets https://kenney.nl/assets/simple-space
+- **Cátedra**: Fede Olive
 
 ---
 
@@ -104,5 +84,5 @@ Assets/
 - [x] Mejor de 5 configurable
 - [x] Límite de tiempo por posesión configurable
 - [x] Cambio de color de paddle (límites / impacto)
-- [ ] Sistema de obstáculos (avanzado)
+- [x] Sistema de obstáculos (avanzado)
 - [ ] Sistema de power-ups con Object Pool (avanzado)
