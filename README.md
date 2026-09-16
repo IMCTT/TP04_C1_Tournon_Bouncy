@@ -1,4 +1,4 @@
-# Pong 2P — Trabajo Práctico N°04
+# Bouncy — Trabajo Práctico N°04
 
 Juego de Pong para 2 jugadores desarrollado en Unity, con mecánicas personalizadas, físicas reales y configuración vía Scriptable Objects.
 
