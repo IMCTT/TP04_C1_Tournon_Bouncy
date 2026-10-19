@@ -1,3 +1,5 @@
+// Error: el archivo se llama "Panel Credits.cs" y la clase CreditsPanel. Unity busca dentro de cada .cs una clase con el mismo nombre que el archivo; cuando no la encuentra, el componente no se puede agregar y los que ya están puestos pueden aparecer como Missing Script.
+// Lo mismo pasa con "Panel Settings.cs" (clase SettingsPanel). Renombrá los dos desde el Project de Unity, y de paso sacales el espacio: los archivos de C# no deberían llevarlo.
 using UnityEngine;
 using UnityEngine.UI;
 

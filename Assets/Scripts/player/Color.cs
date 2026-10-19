@@ -4,6 +4,8 @@ using System;
 
 
 
+    // Warning: la clase se llama Color, igual que UnityEngine.Color. Por eso adentro de este archivo tenés que escribir UnityEngine.Color y UnityEngine.Random, y en Movement.cs también.
+    // Renombrala a ColorChanger o PlayerColor: el nombre de un MonoBehaviour no debería tapar un tipo del motor.
     public class Color : MonoBehaviour
     {
 

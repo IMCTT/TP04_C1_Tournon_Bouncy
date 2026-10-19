@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Warning: este script no está puesto en ninguna de las dos escenas ni en ningún prefab: es código muerto. Lo que hace (el límite de tiempo por lado) ya lo resuelve Ball.PityTimer.
+// Borralo, o quedate con este y sacá el pitytimer de Ball, que es donde mejor estaría: un script para el tiempo y otro para la pelota.
 public class Timer : MonoBehaviour
 {
     public GameDataSo data;

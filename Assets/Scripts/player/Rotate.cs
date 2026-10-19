@@ -7,6 +7,8 @@ public class Rotate : MonoBehaviour
     [Header("Rotation")]
 
     [SerializeField] private float rotation = 10.0f;
+    // Bug: keyrotright y keyrotleft son D y A, exactamente las mismas teclas que Movement.keyRight y Movement.keyLeft, y los dos scripts están en el mismo objeto de la escena.
+    // Así que moverse en horizontal hace girar la paleta al mismo tiempo. Cambialas por Q y E, que es lo que venía del TP01, o sacá este script del Pong.
     [SerializeField] private KeyCode keyrotright = KeyCode.D;
     [SerializeField] private KeyCode keyrotleft = KeyCode.A;
 

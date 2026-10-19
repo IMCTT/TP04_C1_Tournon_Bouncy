@@ -32,6 +32,8 @@ namespace playerMovement
             LimitX();
         }
 
+        // Warning: Move() se llama desde el Update, no desde el FixedUpdate, y aplica AddForce con ForceMode2D.Impulse multiplicado por Time.deltaTime. Las llamadas de física van en FixedUpdate, y un Impulse no se multiplica por delta: ya es un golpe instantáneo.
+        // Mové la llamada a FixedUpdate y usá ForceMode2D.Force sin el deltaTime. Con eso vas a poder bajar Speed, que hoy está en 10000.
         public void Move()
         {
             if (Input.GetKey(keyup))
@@ -75,6 +77,8 @@ namespace playerMovement
                 Debug.Log("toco bola");
                 float r = Random.value;
                 float g = Random.value;
+                // Suggestion: el alpha de un UnityEngine.Color va de 0 a 1, no de 0 a 255. El 255 se clampea a 1 así que no rompe nada, pero da a entender otra cosa.
+                // Escribilo como 1f, o usá el constructor de tres parámetros que ya deja el alpha en 1.
                 float b = Random.value;
                 spriteRenderer.color = new UnityEngine.Color(r, g, b, 255f);
             }
@@ -84,6 +88,8 @@ namespace playerMovement
                 spriteRenderer.color = new UnityEngine.Color(0, 0, 0, 255f);
             }
         }
+// Warning: el objeto tiene Rigidbody2D y acá se escribe transform.position, que lo teletransporta salteando la detección de colisiones. Además, la velocidad acumulada no se cancela, así que el jugador sigue empujando contra el centro.
+// Usá rigidbody2d.position y ponele la componente X de la velocidad en cero cuando corregís.
 
         private void LimitX()
         {

@@ -36,6 +36,8 @@ private float pitytimer = 0f;
     private void Update()
     {
         pitytimer += Time.deltaTime;
+        // Warning: este Debug.Log escribe una línea por frame durante toda la partida, o sea unas sesenta por segundo. Eso inunda la consola y hace imposible ver cualquier otro mensaje.
+        // Borralo. Los otros tres (línea 57 de este archivo y las dos de Movement.cs) son esporádicos y molestan menos, pero tampoco van en la entrega.
         Debug.Log(pitytimer);
         if (pitytimer >= data.goalTimeLimit)
             PityTimer();
@@ -95,6 +97,8 @@ private float pitytimer = 0f;
             player1Score++;
             rightscorePoints.text = player1Score.ToString();
             goalPanel.SetActive(true);
+            // Suggestion: `GetComponentInChildren(typeof(TextMeshProUGUI)).GetComponentInChildren<TextMeshProUGUI>()` busca el componente dos veces, y está repetido en cuatro lugares de este archivo.
+            // Serializá el TMP_Text del panel en un campo, como ya hacés con leftscorePoints y rightscorePoints.
             goalPanel.GetComponentInChildren(typeof(TextMeshProUGUI)).GetComponentInChildren<TextMeshProUGUI>().text = "Goal Player 1!";
             timer = 2f;
             waiting = true;
@@ -116,6 +120,8 @@ private float pitytimer = 0f;
             WinCondition();
         }
     }
+    // Bug: se activa el panel de victoria y en la línea siguiente se carga la escena del menú. El LoadScene se ejecuta al final del frame, así que el panel no llega a verse nunca: el jugador pasa del gol al menú principal sin enterarse de quién ganó.
+    // Mostrá el panel, esperá con una corrutina (WaitForSecondsRealtime, porque vas a querer el tiempo frenado) y recién ahí cargá la escena.
     void WinCondition()
     {
         if (player1Score >= data.pointsToWin)

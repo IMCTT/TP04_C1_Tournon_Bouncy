@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
+        // Warning: el saque se dispara con Space y no hay nada que impida apretarlo de nuevo, así que la pelota se puede acelerar indefinidamente. Además se aplican dos AddForce seguidos, uno Impulse y uno Force, lo que hace muy difícil predecir la velocidad de salida.
+        // Usá un bool que se ponga en false al sacar y vuelva a true en el Reset de la pelota, y dejá un solo AddForce.
         if (Input.GetKeyDown(KeyCode.Space))
         {
 

@@ -35,6 +35,8 @@ public class PanelMain : MonoBehaviour
 
     private void Update()
     {
+        // Warning: Escape solo abre el menú, y solo si estaba cerrado. No hay forma de volver al juego con la misma tecla: hay que ir al botón Play.
+        // Agregá el caso contrario: si el panel ya está activo, cerralo y poné Time.timeScale en 1.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!mainPanel.activeSelf)
